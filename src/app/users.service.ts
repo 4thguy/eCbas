@@ -22,7 +22,7 @@ export class UsersService {
   private useresUrl: string = 'api/users';
 
   login (username: string, password: string): Observable<User[]> {
-    return this.http.get<User[]>(`${this.useresUrl}/?username=${username}&password=${password}`).pipe(
+    return this.http.get<User[]>(`${this.useresUrl}?username=${username}&password=${password}`).pipe(
       tap(_ => this.log(`found users matching ${username}`)),
       catchError(this.handleError<User[]>('login', []))
     );
@@ -37,7 +37,7 @@ export class UsersService {
 
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
-    console.log(`HeroService: ${message}`);
+    console.log(`UserService: ${message}`);
   }
 
   /**
