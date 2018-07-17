@@ -2,6 +2,27 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
+##Task 1
+
+Components needed
+
+* front page
+* sign in screen
+* sign up screen
+* item list
+* item list buttons
+* item details
+
+Routes needed
+
+* /
+* /sign-in
+* /sign-up
+* /item-details
+* /item-details/:id
+
+(both lists may need to be revisited as implemenation progresses)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
