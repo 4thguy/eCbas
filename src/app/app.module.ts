@@ -4,10 +4,12 @@ import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
