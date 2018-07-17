@@ -6,12 +6,13 @@ import { HttpClientModule }    from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, MatListModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ItemDetailsComponent } from './item-details/item-details.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,6 @@ import { ItemDetailsComponent } from './item-details/item-details.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    MatButtonModule,
     HttpClientModule,
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
@@ -32,10 +32,15 @@ import { ItemDetailsComponent } from './item-details/item-details.component';
     // Remove it when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+
+    MatButtonModule,
+    MatListModule,
+    AppRoutingModule,
   ],
   exports: [
     MatButtonModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

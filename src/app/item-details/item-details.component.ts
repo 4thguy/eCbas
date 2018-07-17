@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ItemService } from '../items.service';
+
+import { Item } from '../item';
+
 @Component({
   selector: 'app-item-details',
   templateUrl: './item-details.component.html',
@@ -7,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private itemService: ItemService,
+  ) { }
+
+  items: Item[];
 
   ngOnInit() {
+    this.itemService.getItems()
+    .subscribe(items => this.items = items);
   }
 
 }
