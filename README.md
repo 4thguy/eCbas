@@ -13,6 +13,14 @@ Components needed
 * item list buttons
 * item details
 
+Routes needed
+
+* /
+* /sign-in
+* /sign-up
+* /item-details
+* /item-details/:id
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
