@@ -9,12 +9,14 @@ import { InMemoryDataService }  from './in-memory-data.service';
 import { MatButtonModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignUpComponent
+    SignUpComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
