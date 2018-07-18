@@ -6,7 +6,8 @@ import { HttpClientModule }    from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
-import { MatButtonModule, MatListModule } from '@angular/material';
+import { MatButtonModule, MatListModule, MatToolbarModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { FrontPageComponent } from './front-page/front-page.component';
 import { AppComponent } from './app.component';
@@ -28,7 +29,7 @@ import { TopMenuComponent } from './top-menu/top-menu.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule,
+    AppRoutingModule,
     HttpClientModule,
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
@@ -40,11 +41,13 @@ import { TopMenuComponent } from './top-menu/top-menu.component';
 
     MatButtonModule,
     MatListModule,
-    AppRoutingModule,
+    MatToolbarModule,
+    FlexLayoutModule,
   ],
   exports: [
     MatButtonModule,
     MatListModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,12 @@
-<p>
-  top-menu works!
-</p>
+<mat-toolbar>
+  <div class="container"
+    fxLayout="row"
+    fxLayoutAlign="end"
+    fxLayoutGap="30px"
+  >
+    <span fxFlexAlign="center">Hi, Piero!</span>
+    <a fxFlexAlign="center" mat-raised-button color="primary" [routerLink]="['/sign-in']">Sign In</a>
+    <a fxFlexAlign="center" mat-raised-button color="accent" [routerLink]="['/sign-up']">Sign Up</a>
+    <a fxFlexAlign="center" mat-raised-button color="warn" [routerLink]="['/log-out']">Logout</a>
+  </div>
+</mat-toolbar>
