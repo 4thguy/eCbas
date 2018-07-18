@@ -14,6 +14,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ItemDetailsComponent } from './item-details/item-details.component';
 import { AppRoutingModule } from './app-routing.module';
+import { TopMenuComponent } from './top-menu/top-menu.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AppRoutingModule } from './app-routing.module';
     SignUpComponent,
     SignInComponent,
     ItemDetailsComponent,
-    FrontPageComponent
+    FrontPageComponent,
+    TopMenuComponent
   ],
   imports: [
     BrowserModule,
