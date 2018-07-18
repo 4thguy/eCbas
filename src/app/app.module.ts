@@ -8,6 +8,7 @@ import { InMemoryDataService }  from './in-memory-data.service';
 
 import { MatButtonModule, MatListModule } from '@angular/material';
 
+import { FrontPageComponent } from './front-page/front-page.component';
 import { AppComponent } from './app.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -19,7 +20,8 @@ import { AppRoutingModule } from './app-routing.module';
     AppComponent,
     SignUpComponent,
     SignInComponent,
-    ItemDetailsComponent
+    ItemDetailsComponent,
+    FrontPageComponent
   ],
   imports: [
     BrowserModule,
