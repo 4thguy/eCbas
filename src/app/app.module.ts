@@ -12,6 +12,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FrontPageComponent } from './front-page/front-page.component';
 import { AppComponent } from './app.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { SignOutComponent } from './sign-out/sign-out.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ItemDetailsComponent } from './item-details/item-details.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,7 +25,8 @@ import { TopMenuComponent } from './top-menu/top-menu.component';
     SignInComponent,
     ItemDetailsComponent,
     FrontPageComponent,
-    TopMenuComponent
+    TopMenuComponent,
+    SignOutComponent
   ],
   imports: [
     BrowserModule,
