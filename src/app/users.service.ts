@@ -21,11 +21,19 @@ export class UsersService {
 
   private useresUrl: string = 'api/users';
 
-  login (username: string, password: string): Observable<User[]> {
-    return this.http.get<User[]>(`${this.useresUrl}?username=${username}&password=${password}`).pipe(
-      tap(_ => this.log(`found users matching ${username}`)),
-      catchError(this.handleError<User[]>('login', []))
-    );
+  login (username: string, password: string): Observable<User> {
+    return Observable.create(observer => {
+      var user: User = null;
+      if ((username === 'guest') && (password === 'guest')) {
+        user = new User('Guest', 'User', 'guest', 'guest');
+      }
+      if (user === null) {
+        observer.error();
+      } else {
+        observer.complete(user);
+      }
+    });
+    return null;
   }
 
   /** POST: add a new user to the server */

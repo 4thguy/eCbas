@@ -18,6 +18,11 @@ import { ItemDetailsComponent } from './item-details/item-details.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TopMenuComponent } from './top-menu/top-menu.component';
 
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './reducers/user';
+import { UserEffect } from './effects/user';
+import { EffectsModule } from '@ngrx/effects';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +50,9 @@ import { TopMenuComponent } from './top-menu/top-menu.component';
     MatListModule,
     MatToolbarModule,
     FlexLayoutModule,
+
+    StoreModule.forRoot({ user: reducer }),
+    EffectsModule.forRoot([UserEffect])
   ],
   exports: [
     MatButtonModule,

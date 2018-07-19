@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
+import * as userActions from '../actions/user';
+import * as userReducer from '../reducers/user';
+import { User } from '../user';
 
 import { UsersService } from '../users.service';
-
-import { User } from '../user';
 
 @Component({
   selector: 'app-sign-in',
@@ -10,15 +15,25 @@ import { User } from '../user';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
+  user$: Observable<any>;
 
   constructor(
-    private userService: UsersService
-  ) { }
+    private router: Router,
+    private userService: UsersService,
+    private store : Store<userReducer.State>,
+  ) {
+    this.user$ = this.store.select('user');
+  }
 
   model: User;
 
   ngOnInit() {
     this.generateModel();
+    this.user$.subscribe((userState) => {
+      if (userState.user !== null) {
+        this.goNext();
+      }
+    });
   }
 
   generateModel(): User {
@@ -27,15 +42,18 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit() {
-    this.userService.login(this.model.username, this.model.password)
-      .subscribe(
-        model => this.goBack(model),
-        model => this.model = (model[0] || this.generateModel()),
-      );
+    this.store.dispatch({
+      type: userActions.LOGIN,
+      payload: {
+        username: this.model.username,
+        password: this.model.password,
+      }
+    });
+
+
   }
 
-  goBack(users: User[]) {
-    console.log(users);
-    console.log('logged in');
+  goNext() {
+    this.router.navigate(['/items']);
   }
 }

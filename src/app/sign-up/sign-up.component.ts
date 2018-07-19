@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
 import { UsersService } from '../users.service';
 
@@ -12,7 +13,8 @@ import { User } from '../user';
 export class SignUpComponent implements OnInit {
 
   constructor(
-    private userService: UsersService
+    private router: Router,
+    private userService: UsersService,
   ) { }
 
   ngOnInit() {
@@ -22,11 +24,10 @@ export class SignUpComponent implements OnInit {
 
   onSubmit() {
     this.userService.addUser(this.model)
-      .subscribe(() => this.goBack());
+      .subscribe(() => this.goNext());
   }
 
-  goBack() {
-    this.userService.login(this.model.username, this.model.password)
-      .subscribe(model => this.model = model[0]);
+  goNext() {
+    this.router.navigate(['/sign-in']);
   }
 }
