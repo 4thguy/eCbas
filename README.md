@@ -9,6 +9,7 @@ Components needed
 * front page
 * sign in screen
 * sign up screen
+* sign out screen
 * item list
 * item list buttons
 * item details
@@ -18,7 +19,8 @@ Routes needed
 * /
 * /sign-in
 * /sign-up
-* /item-details
+* /sign-out
+* /items
 * /item-details/:id
 
 (both lists may need to be revisited as implemenation progresses)
