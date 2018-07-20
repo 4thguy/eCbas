@@ -21,8 +21,11 @@
         </div>
       </div>
 
-      <div *ngIf="!item">
+      <div *ngIf="!item && itemFound">
         Select an item from the list to see the item details.
+      </div>
+      <div *ngIf="!item &&!itemFound">
+        Cannot find that item, sorry!
       </div>
     </div>
   </div>
