@@ -21,19 +21,12 @@ export class UsersService {
 
   private useresUrl: string = 'api/users';
 
-  login (username: string, password: string): Observable<User> {
-    return Observable.create(observer => {
-      var user: User = null;
-      if ((username === 'guest') && (password === 'guest')) {
-        user = new User('Guest', 'User', 'guest', 'guest');
-      }
-      if (user === null) {
-        observer.error();
-      } else {
-        observer.complete(user);
-      }
-    });
-    return null;
+  login(username: string, password: string): Observable<boolean> {
+    if(username === 'guest' && password === 'guest') {
+      return of(true);
+    } else {
+      return of(false);
+    }
   }
 
   /** POST: add a new user to the server */

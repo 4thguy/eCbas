@@ -18,15 +18,15 @@ import { UsersService } from '../users.service';
 @Injectable()
 export class UserEffect {
 
-  @Effect()
-  login$: Observable<Action> = this.actions$
-    .ofType(userActions.LOGIN)
-    .debounceTime(300)
-    .switchMap(query => {
-      return this.usersService.login(query.payload.username, query.payload.password)
-        .map(user => new userActions.LoginSuccessAction(user))
-        .catch(error => new userActions.LoginFailureAction(error));
-    })
+    @Effect()
+    login$: Observable<Action> = this.actions$
+      .ofType(userActions.LOGIN)
+      .debounceTime(300)
+      .switchMap(query => {
+        return this.usersService.login(query.payload.username, query.payload.password)
+          .map(user => new userActions.LoginSuccessAction(user))
+          .catch(error => new userActions.LoginFailureAction(error));
+      })
 
     constructor(
       private actions$: Actions,
