@@ -1,0 +1,32 @@
+<section class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <mat-list>
+        <mat-list-item><h2>Item List</h2></mat-list-item>
+        <mat-list-item *ngFor="let item of items">
+          <a mat-raised-button  [routerLink]="['/item-details', item.id]">{{ item.name }}</a>
+        </mat-list-item>
+      </mat-list>
+    </div>
+    <div class="col-md-8">
+      <div class="form-horizontal" *ngIf="item">
+        <h1>{{ item.name }} Details</h1>
+        <div class="form-group">
+          <label class="col-md-4">Name: </label>
+          <label class="col-md-8">{{ item.name }}</label>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Description: </label>
+          <label class="col-md-8">{{ item.description }}</label>
+        </div>
+      </div>
+
+      <div *ngIf="!item && itemFound">
+        Select an item from the list to see the item details.
+      </div>
+      <div *ngIf="!item &&!itemFound">
+        Cannot find that item, sorry!
+      </div>
+    </div>
+  </div>
+</section>
