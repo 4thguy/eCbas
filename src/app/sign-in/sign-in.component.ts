@@ -16,6 +16,8 @@ import { UsersService } from '../users.service';
 })
 export class SignInComponent implements OnInit {
   user$: Observable<any>;
+  message: string = '';
+  submitted: boolean = false;
 
   constructor(
     private router: Router,
@@ -32,6 +34,8 @@ export class SignInComponent implements OnInit {
     this.user$.subscribe((userState) => {
       if (userState.user !== null) {
         this.goNext();
+      } else {
+        this.message = userState.errorMessage;
       }
     });
   }
@@ -42,6 +46,8 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submitted = true;
+    this.message = '';
     this.store.dispatch({
       type: userActions.LOGIN,
       payload: {

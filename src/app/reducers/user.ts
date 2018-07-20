@@ -6,7 +6,7 @@ import { UsersService } from '../users.service';
 import { HttpClient } from '@angular/common/http';
 
 export interface State {
-  user: User,
+  user: Partial<User>,
   errorMessage: string
 };
 
@@ -30,7 +30,7 @@ export function reducer(state = initialState, action: user.Actions): State {
     case user.LOGIN_FAILURE:
       return {
         user: null,
-        errorMessage: action.payload.toString()
+        errorMessage: action.payload.toString(),
       }
 
     default: {

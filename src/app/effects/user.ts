@@ -18,15 +18,18 @@ import { UsersService } from '../users.service';
 @Injectable()
 export class UserEffect {
 
-    @Effect()
-    login$: Observable<Action> = this.actions$
-      .ofType(userActions.LOGIN)
-      .debounceTime(300)
-      .switchMap(query => {
-        return this.usersService.login(query.payload.username, query.payload.password)
-          .map(user => new userActions.LoginSuccessAction(user))
-          .catch(error => new userActions.LoginFailureAction(error));
-      })
+  @Effect()
+  login$ = this.actions$
+    .ofType(userActions.LOGIN)
+    .debounceTime(300)
+    .switchMap((response: userActions.LoginAction) => {
+      return this.usersService.login(response.payload.username, response.payload.password)
+        .map(loggedIn => loggedIn ? new userActions.LoginSuccessAction({
+            name: 'Piero',
+            surname: 'Cascio'
+          }) :
+          new userActions.LoginFailureAction('Incorrect Credentials'));
+    });
 
     constructor(
       private actions$: Actions,

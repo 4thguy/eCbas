@@ -4,7 +4,7 @@
     fxLayoutAlign="end"
     fxLayoutGap="30px"
   >
-    <span fxFlexAlign="center" *ngIf="canShow('greeting')">Hi, !</span>
+    <span fxFlexAlign="center" *ngIf="canShow('greeting')">Hi, {{ user.name }}!</span>
     <a fxFlexAlign="center" *ngIf="canShow('sign-in')" mat-raised-button color="primary" [routerLink]="['/sign-in']">Sign In</a>
     <a fxFlexAlign="center" *ngIf="canShow('sign-up')" mat-raised-button color="accent" [routerLink]="['/sign-up']">Sign Up</a>
     <a fxFlexAlign="center" *ngIf="canShow('sign-out')" mat-raised-button color="warn" [routerLink]="['/sign-out']">Logout</a>
