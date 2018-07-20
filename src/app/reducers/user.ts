@@ -32,6 +32,11 @@ export function reducer(state = initialState, action: user.Actions): State {
         user: null,
         errorMessage: action.payload.toString(),
       }
+    case user.LOGOUT:
+      return {
+        user: null,
+        errorMessage: null,
+      }
 
     default: {
       return state;

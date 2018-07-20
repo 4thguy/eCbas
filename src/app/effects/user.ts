@@ -31,6 +31,20 @@ export class UserEffect {
           new userActions.LoginFailureAction('Incorrect Credentials'));
     });
 
+  @Effect()
+  logout$ = this.actions$
+    .ofType(userActions.LOGOUT)
+    .debounceTime(300)
+    .switchMap((response: userActions.LogoutAction) => {
+      //ToDo:
+      //I know that this is a hack, I'm in search of a better solution
+      var a: Observable<boolean>;
+      return a
+        .map(alwaysTrue => {
+          new userActions.LogoutAction()
+        });
+    });
+
     constructor(
       private actions$: Actions,
       private usersService: UsersService,
